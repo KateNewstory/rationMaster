@@ -23,25 +23,16 @@
       <file leaf-file-name="scripts.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/scripts.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="114" column="71" selection-start="4856" selection-end="4856" vertical-scroll-proportion="-71.84">
+            <state line="76" column="37" selection-start="2899" selection-end="2899" vertical-scroll-proportion="-10.88">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dishes.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/dishes.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="32" column="2" selection-start="642" selection-end="642" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="knockout.bindingHandlers.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="knockout.bindingHandlers.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/knockout.bindingHandlers.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="2" selection-start="1058" selection-end="1058" vertical-scroll-proportion="0.0">
+            <state line="24" column="45" selection-start="1133" selection-end="1133" vertical-scroll-proportion="0.69588554">
               <folding />
             </state>
           </provider>
@@ -50,16 +41,19 @@
       <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="183" column="40" selection-start="7914" selection-end="7917" vertical-scroll-proportion="-3.3137255">
-              <folding />
+            <state line="117" column="42" selection-start="5032" selection-end="5032" vertical-scroll-proportion="-4.6666665">
+              <folding>
+                <element signature="tag#div#0;tag#div#0;tag#div#0;tag#body#0;tag#html#0" expanded="false" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="style.css" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="style.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="19" selection-start="65" selection-end="65" vertical-scroll-proportion="0.12164579">
+            <state line="4" column="19" selection-start="65" selection-end="65" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -75,11 +69,11 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/js/knockout.bindingHandlers.js" />
         <option value="$PROJECT_DIR$/js/dishes.js" />
+        <option value="$PROJECT_DIR$/css/style.css" />
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/js/scripts.js" />
-        <option value="$PROJECT_DIR$/css/style.css" />
+        <option value="$PROJECT_DIR$/js/knockout.bindingHandlers.js" />
       </list>
     </option>
   </component>
@@ -275,41 +269,47 @@
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="41" column="67" selection-start="2069" selection-end="2069" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="tag#div#0;tag#div#0;tag#div#0;tag#body#0;tag#html#0" expanded="false" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="19" selection-start="65" selection-end="65" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/dishes.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="2" selection-start="642" selection-end="642" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/knockout.bindingHandlers.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="2" selection-start="1058" selection-end="1058" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/scripts.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="114" column="71" selection-start="4856" selection-end="4856" vertical-scroll-proportion="-71.84">
+        <state line="32" column="2" selection-start="642" selection-end="642" vertical-scroll-proportion="0.9391771">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="183" column="40" selection-start="7914" selection-end="7917" vertical-scroll-proportion="-3.3137255">
+        <state line="117" column="42" selection-start="5032" selection-end="5032" vertical-scroll-proportion="-4.6666665">
+          <folding>
+            <element signature="tag#div#0;tag#div#0;tag#div#0;tag#body#0;tag#html#0" expanded="false" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/scripts.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="76" column="37" selection-start="2899" selection-end="2899" vertical-scroll-proportion="-10.88">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/css/style.css">
+    <entry file="file://$PROJECT_DIR$/js/knockout.bindingHandlers.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="19" selection-start="65" selection-end="65" vertical-scroll-proportion="0.12164579">
+        <state line="24" column="45" selection-start="1133" selection-end="1133" vertical-scroll-proportion="0.69588554">
           <folding />
         </state>
       </provider>

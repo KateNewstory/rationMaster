@@ -115,6 +115,10 @@
     </div>
 </div>
 <div class="col-sm-5">
+    <div class="row" style="min-height: 75px;">
+        <div class="alert alert-danger" role="alert" style="display: none;" data-bind="alert: errorMsg"></div>
+    </div>
+
     <ul class="list-group" data-bind="foreach: dishes">
         <li class="list-group-item">
             <h4 class="list-group-item-heading" data-bind="text:name"></h4>

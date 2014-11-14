@@ -1,6 +1,7 @@
 ﻿$(function () {
     ViewModel = function (dishes) {
         var self = this;
+        self.errorMsg = ko.observable('');
         self.dishes = dishes;
         self.restriction = {
             breakfast:{
@@ -48,17 +49,47 @@
             },
             add:function (dish, type) {
                 var found = false;
-                self.ration[type].container().every(function (value, index, array) {
-                    if (dish.name == value.dish.name) {
-                        array[index].count(value.count() + 1);
-                        found = true;
-                        return false;
-                    }
-                    return true;
-                });
-                if (!found) {
-                    self.ration[type].container.push({dish:dish, count:ko.observable(1)});
+                var energyLeft = self.ration[type].energyLeft;
+                var errorMsg = '';
+                if (dish.protein > energyLeft.protein()) {
+                    errorMsg += 'белка';
                 }
+                if (dish.fat > energyLeft.fat()) {
+                    if(errorMsg){
+                        errorMsg +=', '
+                    }
+                    errorMsg += 'жиров';
+                }
+                if (dish.carbo > energyLeft.carbo()) {
+                    if(errorMsg){
+                        errorMsg +=', '
+                    }
+                    errorMsg += 'углеводов';
+                }
+                if (dish.calorie > energyLeft.calorie()) {
+                    if(errorMsg){
+                        errorMsg +=', '
+                    }
+                    errorMsg += 'калорий';
+                }
+
+                if (errorMsg) {
+                    self.errorMsg('Нельзя добавить это блюдо: превышение ' + errorMsg);
+
+                } else {
+                    self.ration[type].container().every(function (value, index, array) {
+                        if (dish.name == value.dish.name) {
+                            array[index].count(value.count() + 1);
+                            found = true;
+                            return false;
+                        }
+                        return true;
+                    });
+                    if (!found) {
+                        self.ration[type].container.push({dish:dish, count:ko.observable(1)});
+                    }
+                }
+
             },
             remove:function (element, type) {
                 self.ration[type].container.remove(element);
@@ -71,23 +102,23 @@
                 });
                 return result;
             },
-            getEnergyObj:function(type) {
-                  return {
-                      protein:ko.computed(function () {
-                          return self.ration.getEnergy(type, 'protein');
-                      }),
-                      fat:ko.computed(function () {
-                          return self.ration.getEnergy(type, 'fat');
-                      }),
-                      carbo:ko.computed(function () {
-                          return self.ration.getEnergy(type, 'carbo');
-                      }),
-                      calorie:ko.computed(function () {
-                          return self.ration.getEnergy(type, 'calorie');
-                      })
-                  }
+            getEnergyObj:function (type) {
+                return {
+                    protein:ko.computed(function () {
+                        return self.ration.getEnergy(type, 'protein');
+                    }),
+                    fat:ko.computed(function () {
+                        return self.ration.getEnergy(type, 'fat');
+                    }),
+                    carbo:ko.computed(function () {
+                        return self.ration.getEnergy(type, 'carbo');
+                    }),
+                    calorie:ko.computed(function () {
+                        return self.ration.getEnergy(type, 'calorie');
+                    })
+                }
             },
-            getEnergyLeftObj: function (type) {
+            getEnergyLeftObj:function (type) {
                 return {
                     protein:ko.computed(function () {
                         return self.restriction[type].protein() - self.ration[type].energy.protein();
@@ -112,7 +143,7 @@
         self.ration.dinner.energyLeft = self.ration.getEnergyLeftObj('dinner');
 
         self.ration.supper.energy = self.ration.getEnergyObj('supper');
-        self.ration.supper.energyLeft = self.ration.getEnergyLeftObj('dinner');
+        self.ration.supper.energyLeft = self.ration.getEnergyLeftObj('supper');
 
         self.ration.energy = {
             protein:ko.computed(function () {
@@ -127,7 +158,7 @@
             calorie:ko.computed(function () {
                 return self.ration.breakfast.energy.calorie() + self.ration.dinner.energy.calorie() + self.ration.supper.energy.calorie();
             })
-            };
+        };
         self.ration.energyLeft = {
             protein:ko.computed(function () {
                 return self.restriction.total.protein() - self.ration.energy.protein();
