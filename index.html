@@ -1,0 +1,384 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Планировщик питания</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="css/style.css" rel="stylesheet"/>
+</head>
+<body>
+
+<div class="container-fluid">
+<h1>Планировщик питания</h1>
+
+<div class="row">
+<div class="col-sm-3">
+    <div class="restriction">
+        <h4>Ограничения</h4>
+        <table class="table">
+            <thead>
+            <tr>
+                <th class="text-center"></th>
+                <th class="text-center"><span class="label label-primary">Б</span></th>
+                <th class="text-center"><span class="label label-success">Ж</span></th>
+                <th class="text-center"><span class="label label-info">У</span></th>
+                <th class="text-center"><span class="label label-warning">К</span></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>
+                    Завтрак
+                </td>
+                <td>
+                    <input type="text" class="form-control input-sm"
+                           data-bind="value: restriction.supper.protein, valueUpdate: 'afterkeydown'"/>
+                </td>
+                <td>
+                    <input type="text" class="form-control input-sm"
+                           data-bind="numeric:true, value: restriction.supper.fat, valueUpdate: 'afterkeydown'"/>
+                </td>
+                <td>
+                    <input type="text" class="form-control input-sm"
+                           data-bind="numeric:true, value: restriction.breakfast.carbo, valueUpdate: 'afterkeydown'"/>
+                </td>
+                <td>
+                    <input type="text" class="form-control input-sm"
+                           data-bind="numeric:true, value: restriction.breakfast.calorie, valueUpdate: 'afterkeydown'"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Обед
+                </td>
+                <td>
+                    <input type="text" class="form-control input-sm"
+                           data-bind="numeric:true, value: restriction.dinner.protein, valueUpdate: 'afterkeydown'"/>
+                </td>
+                <td>
+                    <input type="text" class="form-control input-sm"
+                           data-bind="numeric:true, value: restriction.dinner.fat, valueUpdate: 'afterkeydown'"/>
+                </td>
+                <td>
+                    <input type="text" class="form-control input-sm"
+                           data-bind="numeric:true, value: restriction.dinner.carbo, valueUpdate: 'afterkeydown'"/>
+                </td>
+                <td>
+                    <input type="text" class="form-control input-sm"
+                           data-bind="numeric:true, value: restriction.dinner.calorie, valueUpdate: 'afterkeydown'"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Ужин
+                </td>
+                <td>
+                    <input type="text" class="form-control input-sm"
+                           data-bind="numeric:true, value: restriction.supper.protein, valueUpdate: 'afterkeydown'"/>
+                </td>
+                <td>
+                    <input type="text" class="form-control input-sm"
+                           data-bind="numeric:true, value: restriction.supper.fat, valueUpdate: 'afterkeydown'"/>
+                </td>
+                <td>
+                    <input type="text" class="form-control input-sm"
+                           data-bind="numeric:true, numeric:true, value: restriction.supper.carbo, valueUpdate: 'afterkeydown'"/>
+                </td>
+                <td>
+                    <input type="text" class="form-control input-sm"
+                           data-bind="numeric:true, value: restriction.supper.calorie, valueUpdate: 'afterkeydown'"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <strong>Всего</strong>
+                </td>
+                <td>
+                    <input type="text" class="form-control input-sm" disabled="disabled"
+                           data-bind="value: restriction.total.protein"/>
+                </td>
+                <td>
+                    <input type="text" class="form-control input-sm" disabled="disabled"
+                           data-bind="value: restriction.total.fat"/>
+                </td>
+                <td>
+                    <input type="text" class="form-control input-sm" disabled="disabled"
+                           data-bind="value: restriction.total.carbo"/>
+                </td>
+                <td>
+                    <input type="text" class="form-control input-sm" disabled="disabled"
+                           data-bind="value: restriction.total.calorie"/>
+                </td>
+            </tr>
+            </tbody>
+
+        </table>
+    </div>
+</div>
+<div class="col-sm-5">
+    <ul class="list-group" data-bind="foreach: dishes">
+        <li class="list-group-item">
+            <h4 class="list-group-item-heading" data-bind="text:name"></h4>
+
+            <div class="row">
+                <div class="col-sm-3">
+                    <img class="img-thumbnail" data-bind="attr:{src : img}, visible : img !== ''"/></div>
+                <div class="col-sm-9">
+
+                    <p class="list-group-item-text">
+                        <strong>Энергия:</strong>
+                        <span class="label label-primary" data-bind="text:'Белки: '+ protein"></span>
+                        <span class="label label-success" data-bind="text:'Жиры: '+ fat"></span>
+                        <span class="label label-info" data-bind="text:'Углеводы: '+ carbo"></span>
+                        <span class="label label-warning" data-bind="text:'Калории: '+ calorie"></span>
+                    </p>
+                    <br/>
+
+                    <p class="list-group-item-text">
+                        <strong>Компоненты:</strong>
+                        <span data-bind="text: component.join(', ')"></span>
+                    </p>
+                </div>
+            </div>
+
+            <div class="text-right">
+                <button data-bind="click: function (data) { $parent.ration.add(data, 'breakfast') }"
+                        type="button" class="btn btn-primary btn-xs">
+                    Завтрак
+                </button>
+                <button data-bind="click: function (data) { $parent.ration.add(data, 'dinner') }" type="button"
+                        class="btn btn-primary btn-xs">Обед
+                </button>
+                <button data-bind="click: function (data) { $parent.ration.add(data, 'supper') }" type="button"
+                        class="btn btn-primary btn-xs">Ужин
+                </button>
+            </div>
+        </li>
+    </ul>
+</div>
+<div class="col-sm-4">
+<div class="ration">
+<!-- ko if: ration.breakfast.container().length -->
+<div class="breakfast">
+    <h4>Завтрак</h4>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Блюдо</th>
+            <th><span class="label label-primary">Б</span></th>
+            <th><span class="label label-success">Ж</span></th>
+            <th><span class="label label-info">У</span></th>
+            <th><span class="label label-warning">К</span></th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody data-bind="foreach: ration.breakfast.container">
+        <tr>
+            <td>
+                <span data-bind="text: dish.name + ' (' + count() + ')'"></span>
+            </td>
+            <td data-bind="text: dish.protein * count()"></td>
+            <td data-bind="text: dish.fat * count()"></td>
+            <td data-bind="text: dish.carbo * count()"></td>
+            <td data-bind="text: dish.calorie * count()"></td>
+            <td>
+                        <span class="badge"
+                              data-bind="click: function (data) { $parent.ration.remove(data, 'breakfast') }">X</span>
+            </td>
+        </tr>
+        <!-- ko if: $index() == ($parent.ration.breakfast.container().length - 1) -->
+        <tr>
+            <td>
+                <strong>Всего</strong>
+            </td>
+            <td data-bind="text: $parent.ration.breakfast.energy.protein"></td>
+            <td data-bind="text: $parent.ration.breakfast.energy.fat"></td>
+            <td data-bind="text: $parent.ration.breakfast.energy.carbo"></td>
+            <td data-bind="text: $parent.ration.breakfast.energy.calorie"></td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <strong>Осталось</strong>
+            </td>
+            <td data-bind="text: $parent.ration.breakfast.energyLeft.protein"></td>
+            <td data-bind="text: $parent.ration.breakfast.energyLeft.fat"></td>
+            <td data-bind="text: $parent.ration.breakfast.energyLeft.carbo"></td>
+            <td data-bind="text: $parent.ration.breakfast.energyLeft.calorie"></td>
+            <td>
+            </td>
+        </tr>
+        <!-- /ko -->
+        </tbody>
+    </table>
+</div>
+<!-- /ko -->
+<!-- ko if: ration.dinner.container().length -->
+<div class="dinner">
+    <h4>Обед</h4>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Блюдо</th>
+            <th><span class="label label-primary">Б</span></th>
+            <th><span class="label label-success">Ж</span></th>
+            <th><span class="label label-info">У</span></th>
+            <th><span class="label label-warning">К</span></th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody data-bind="foreach: ration.dinner.container">
+        <tr>
+            <td>
+                <span data-bind="text: dish.name + ' (' + count() + ')'"></span>
+            </td>
+            <td data-bind="text: dish.protein * count()"></td>
+            <td data-bind="text: dish.fat * count()"></td>
+            <td data-bind="text: dish.carbo * count()"></td>
+            <td data-bind="text: dish.calorie * count()"></td>
+            <td>
+                                <span class="badge"
+                                      data-bind="click: function (data) { $parent.ration.remove(data, 'dinner') }">X</span>
+            </td>
+        </tr>
+        <!-- ko if: $index() == ($parent.ration.dinner.container().length - 1) -->
+        <tr>
+            <td>
+                <strong>Всего</strong>
+            </td>
+            <td data-bind="text: $parent.ration.dinner.energy.protein"></td>
+            <td data-bind="text: $parent.ration.dinner.energy.fat"></td>
+            <td data-bind="text: $parent.ration.dinner.energy.carbo"></td>
+            <td data-bind="text: $parent.ration.dinner.energy.calorie"></td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <strong>Осталось</strong>
+            </td>
+            <td data-bind="text: $parent.ration.dinner.energyLeft.protein"></td>
+            <td data-bind="text: $parent.ration.dinner.energyLeft.fat"></td>
+            <td data-bind="text: $parent.ration.dinner.energyLeft.carbo"></td>
+            <td data-bind="text: $parent.ration.dinner.energyLeft.calorie"></td>
+            <td>
+            </td>
+        </tr>
+        <!-- /ko -->
+        </tbody>
+    </table>
+</div>
+<!-- /ko -->
+<!-- ko if: ration.supper.container().length -->
+<div class="supper">
+    <h4>Ужин</h4>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Блюдо</th>
+            <th><span class="label label-primary">Б</span></th>
+            <th><span class="label label-success">Ж</span></th>
+            <th><span class="label label-info">У</span></th>
+            <th><span class="label label-warning">К</span></th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody data-bind="foreach: ration.supper.container">
+        <tr>
+            <td>
+                <span data-bind="text: dish.name + ' (' + count() + ')'"></span>
+            </td>
+            <td data-bind="text: dish.protein * count()"></td>
+            <td data-bind="text: dish.fat * count()"></td>
+            <td data-bind="text: dish.carbo * count()"></td>
+            <td data-bind="text: dish.calorie * count()"></td>
+            <td>
+                                <span class="badge"
+                                      data-bind="click: function (data) { $parent.ration.remove(data, 'supper') }">X</span>
+            </td>
+        </tr>
+        <!-- ko if: $index() == ($parent.ration.supper.container().length - 1) -->
+        <tr>
+            <td>
+                <strong>Всего</strong>
+            </td>
+            <td data-bind="text: $parent.ration.supper.energy.protein"></td>
+            <td data-bind="text: $parent.ration.supper.energy.fat"></td>
+            <td data-bind="text: $parent.ration.supper.energy.carbo"></td>
+            <td data-bind="text: $parent.ration.supper.energy.calorie"></td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <strong>Осталось</strong>
+            </td>
+            <td data-bind="text: $parent.ration.supper.energyLeft.protein"></td>
+            <td data-bind="text: $parent.ration.supper.energyLeft.fat"></td>
+            <td data-bind="text: $parent.ration.supper.energyLeft.carbo"></td>
+            <td data-bind="text: $parent.ration.supper.energyLeft.calorie"></td>
+            <td>
+            </td>
+        </tr>
+        <!-- /ko -->
+        </tbody>
+    </table>
+</div>
+<!-- /ko -->
+
+<div class="total">
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th></th>
+            <th><span class="label label-primary">Б</span></th>
+            <th><span class="label label-success">Ж</span></th>
+            <th><span class="label label-info">У</span></th>
+            <th><span class="label label-warning">К</span></th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>
+                <strong>Всего</strong>
+            </td>
+            <td data-bind="text: ration.totalEnergy.protein"></td>
+            <td data-bind="text: ration.totalEnergy.fat"></td>
+            <td data-bind="text: ration.totalEnergy.carbo"></td>
+            <td data-bind="text: ration.totalEnergy.calorie"></td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <strong>Осталось</strong>
+            </td>
+            <td data-bind="text: ration.totalEnergyLeft.protein"></td>
+            <td data-bind="text: ration.totalEnergyLeft.fat"></td>
+            <td data-bind="text: ration.totalEnergyLeft.carbo"></td>
+            <td data-bind="text: ration.totalEnergyLeft.calorie"></td>
+            <td>
+            </td>
+        </tr>
+
+        </tbody>
+    </table>
+</div>
+
+</div>
+
+</div>
+</div>
+</div>
+
+
+<script src="js/vendor/jquery-2.1.1.min.js"></script>
+<script src="js/vendor/knockout-3.2.0.min.js"></script>
+<script src="js/vendor/bootstrap.min.js"></script>
+<script src="js/knockout.bindingHandlers.js"></script>
+<script src="js/scripts.js"></script>
+</body>
+</html>
