@@ -345,10 +345,10 @@
             <td>
                 <strong>Всего</strong>
             </td>
-            <td data-bind="text: ration.totalEnergy.protein"></td>
-            <td data-bind="text: ration.totalEnergy.fat"></td>
-            <td data-bind="text: ration.totalEnergy.carbo"></td>
-            <td data-bind="text: ration.totalEnergy.calorie"></td>
+            <td data-bind="text: ration.energy.protein"></td>
+            <td data-bind="text: ration.energy.fat"></td>
+            <td data-bind="text: ration.energy.carbo"></td>
+            <td data-bind="text: ration.energy.calorie"></td>
             <td>
             </td>
         </tr>
@@ -356,10 +356,10 @@
             <td>
                 <strong>Осталось</strong>
             </td>
-            <td data-bind="text: ration.totalEnergyLeft.protein"></td>
-            <td data-bind="text: ration.totalEnergyLeft.fat"></td>
-            <td data-bind="text: ration.totalEnergyLeft.carbo"></td>
-            <td data-bind="text: ration.totalEnergyLeft.calorie"></td>
+            <td data-bind="text: ration.energyLeft.protein"></td>
+            <td data-bind="text: ration.energyLeft.fat"></td>
+            <td data-bind="text: ration.energyLeft.carbo"></td>
+            <td data-bind="text: ration.energyLeft.calorie"></td>
             <td>
             </td>
         </tr>
@@ -379,6 +379,8 @@
 <script src="js/vendor/knockout-3.2.0.min.js"></script>
 <script src="js/vendor/bootstrap.min.js"></script>
 <script src="js/knockout.bindingHandlers.js"></script>
+<script src="js/dishes.js"></script>
 <script src="js/scripts.js"></script>
+
 </body>
 </html>

@@ -1,60 +1,4 @@
 ﻿$(function () {
-    ko.bindingHandlers.numeric = {
-        init:function (element, valueAccessor) {
-            $(element).on("keydown", function (event) {
-                // Allow: backspace, delete, tab, escape, and enter
-                if (event.keyCode == 46 || event.keyCode == 8 || event.keyCode == 9 || event.keyCode == 27 || event.keyCode == 13 ||
-                    // Allow: Ctrl+A
-                    (event.keyCode == 65 && event.ctrlKey === true) ||
-                    // Allow: . ,
-                    (event.keyCode == 188 || event.keyCode == 190 || event.keyCode == 110) ||
-                    // Allow: home, end, left, right
-                    (event.keyCode >= 35 && event.keyCode <= 39)) {
-                    // let it happen, don't do anything
-                    return;
-                }
-                else {
-                    // Ensure that it is a number and stop the keypress
-                    if (event.shiftKey || (event.keyCode < 48 || event.keyCode > 57) && (event.keyCode < 96 || event.keyCode > 105)) {
-                        event.preventDefault();
-                    }
-                }
-            });
-        }
-    };
-    var dishes = [
-        {
-            type:'Первые блюда',
-            name:'Борщ',
-            calorie:10,
-            protein:10,
-            fat:10,
-            carbo:10,
-            img:'img/borsch.jpg',
-            component:['Свекла', 'Морковь', 'Лук репчатый', 'Картофель', 'Свинина', 'Томатная паста']
-        },
-        {
-            type:'Вторые блюда',
-            name:'Каша гречневая',
-            calorie:20,
-            protein:20,
-            fat:20,
-            carbo:20,
-            img:'',
-            component:[]
-        },
-        {
-            type:'Напитки',
-            name:'Компот яблочный',
-            calorie:5,
-            protein:5,
-            fat:5,
-            carbo:5,
-            img:'',
-            component:[]
-        }
-
-    ];
     ViewModel = function (dishes) {
         var self = this;
         self.dishes = dishes;
@@ -126,95 +70,51 @@
                     result += element.count() * element.dish[energyType];
                 });
                 return result;
+            },
+            getEnergyObj:function(type) {
+                  return {
+                      protein:ko.computed(function () {
+                          return self.ration.getEnergy(type, 'protein');
+                      }),
+                      fat:ko.computed(function () {
+                          return self.ration.getEnergy(type, 'fat');
+                      }),
+                      carbo:ko.computed(function () {
+                          return self.ration.getEnergy(type, 'carbo');
+                      }),
+                      calorie:ko.computed(function () {
+                          return self.ration.getEnergy(type, 'calorie');
+                      })
+                  }
+            },
+            getEnergyLeftObj: function (type) {
+                return {
+                    protein:ko.computed(function () {
+                        return self.restriction[type].protein() - self.ration[type].energy.protein();
+                    }),
+                    fat:ko.computed(function () {
+                        return self.restriction[type].fat() - self.ration[type].energy.fat();
+                    }),
+                    carbo:ko.computed(function () {
+                        return self.restriction[type].carbo() - self.ration[type].energy.carbo();
+                    }),
+                    calorie:ko.computed(function () {
+                        return self.restriction[type].calorie() - self.ration[type].energy.calorie();
+                    })
+                };
             }
         };
 
-        self.ration.breakfast.energy = {
-            protein:ko.computed(function () {
-                return self.ration.getEnergy('breakfast', 'protein');
-            }),
-            fat:ko.computed(function () {
-                return self.ration.getEnergy('breakfast', 'fat');
-            }),
-            carbo:ko.computed(function () {
-                return self.ration.getEnergy('breakfast', 'carbo');
-            }),
-            calorie:ko.computed(function () {
-                return self.ration.getEnergy('breakfast', 'calorie');
-            })
-        };
-        self.ration.breakfast.energyLeft = {
-            protein:ko.computed(function () {
-                return self.restriction.breakfast.protein() - self.ration.breakfast.energy.protein();
-            }),
-            fat:ko.computed(function () {
-                return self.restriction.breakfast.fat() - self.ration.breakfast.energy.fat();
-            }),
-            carbo:ko.computed(function () {
-                return self.restriction.breakfast.carbo() - self.ration.breakfast.energy.carbo();
-            }),
-            calorie:ko.computed(function () {
-                return self.restriction.breakfast.calorie() - self.ration.breakfast.energy.calorie();
-            })
-        };
-        self.ration.dinner.energy = {
-            protein:ko.computed(function () {
-                return self.ration.getEnergy('dinner', 'protein');
-            }),
-            fat:ko.computed(function () {
-                return self.ration.getEnergy('dinner', 'fat');
-            }),
-            carbo:ko.computed(function () {
-                return self.ration.getEnergy('dinner', 'carbo');
-            }),
-            calorie:ko.computed(function () {
-                return self.ration.getEnergy('dinner', 'calorie');
-            })
-        };
-        self.ration.dinner.energyLeft = {
-            protein:ko.computed(function () {
-                return self.restriction.dinner.protein() - self.ration.dinner.energy.protein();
-            }),
-            fat:ko.computed(function () {
-                return self.restriction.dinner.fat() - self.ration.dinner.energy.fat();
-            }),
-            carbo:ko.computed(function () {
-                return self.restriction.dinner.carbo() - self.ration.dinner.energy.carbo();
-            }),
-            calorie:ko.computed(function () {
-                return self.restriction.dinner.calorie() - self.ration.dinner.energy.calorie();
-            })
-        };
-        self.ration.supper.energy = {
-            protein:ko.computed(function () {
-                return self.ration.getEnergy('supper', 'protein');
-            }),
-            fat:ko.computed(function () {
-                return self.ration.getEnergy('supper', 'fat');
-            }),
-            carbo:ko.computed(function () {
-                return self.ration.getEnergy('supper', 'carbo');
-            }),
-            calorie:ko.computed(function () {
-                return self.ration.getEnergy('supper', 'calorie');
-            })
-        };
-        self.ration.supper.energyLeft = {
-            protein:ko.computed(function () {
-                return self.restriction.supper.protein() - self.ration.supper.energy.protein();
-            }),
-            fat:ko.computed(function () {
-                return self.restriction.supper.fat() - self.ration.supper.energy.fat();
-            }),
-            carbo:ko.computed(function () {
-                return self.restriction.supper.carbo() - self.ration.supper.energy.carbo();
-            }),
-            calorie:ko.computed(function () {
-                return self.restriction.supper.calorie() - self.ration.supper.energy.calorie();
-            })
-        };
+        self.ration.breakfast.energy = self.ration.getEnergyObj('breakfast');
+        self.ration.breakfast.energyLeft = self.ration.getEnergyLeftObj('breakfast');
 
-        self.ration.totalEnergy = {
+        self.ration.dinner.energy = self.ration.getEnergyObj('dinner');
+        self.ration.dinner.energyLeft = self.ration.getEnergyLeftObj('dinner');
+
+        self.ration.supper.energy = self.ration.getEnergyObj('supper');
+        self.ration.supper.energyLeft = self.ration.getEnergyLeftObj('dinner');
+
+        self.ration.energy = {
             protein:ko.computed(function () {
                 return self.ration.breakfast.energy.protein() + self.ration.dinner.energy.protein() + self.ration.supper.energy.protein();
             }),
@@ -228,18 +128,18 @@
                 return self.ration.breakfast.energy.calorie() + self.ration.dinner.energy.calorie() + self.ration.supper.energy.calorie();
             })
             };
-        self.ration.totalEnergyLeft = {
+        self.ration.energyLeft = {
             protein:ko.computed(function () {
-                return self.restriction.total.protein() - self.ration.totalEnergy.protein();
+                return self.restriction.total.protein() - self.ration.energy.protein();
             }),
             fat:ko.computed(function () {
-                return self.restriction.total.fat() - self.ration.totalEnergy.fat();
+                return self.restriction.total.fat() - self.ration.energy.fat();
             }),
             carbo:ko.computed(function () {
-                return self.restriction.total.carbo() - self.ration.totalEnergy.carbo();
+                return self.restriction.total.carbo() - self.ration.energy.carbo();
             }),
             calorie:ko.computed(function () {
-                return self.restriction.total.calorie() - self.ration.totalEnergy.calorie();
+                return self.restriction.total.calorie() - self.ration.energy.calorie();
             })
         };
 
