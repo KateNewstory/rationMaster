@@ -115,6 +115,16 @@
     </div>
     <div class="components">
         <h4>Компоненты</h4>
+
+        <div style="min-height: 200px;overflow-y: scroll;" data-bind="foreach: dishComponents()">
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" data-bind="value: $data, checked: $parent.filterComponent">
+                    <span data-bind="text: $data"></span>
+                </label>
+            </div>
+        </div>
+
     </div>
 </div>
 <div class="col-sm-5">
@@ -139,13 +149,17 @@
             <table class="table-condensed ">
                 <tr>
                     <td><span class="label label-primary">Б</span></td>
-                    <td><input type="text" class="form-control input-sm" data-bind="numeric:true, value: filterProtein, valueUpdate: 'afterkeydown'"></td>
+                    <td><input type="text" class="form-control input-sm"
+                               data-bind="numeric:true, value: filterProtein, valueUpdate: 'afterkeydown'"></td>
                     <td><span class="label label-success">Ж</span></td>
-                    <td><input type="text" class="form-control input-sm" data-bind="numeric:true, value: filterFat, valueUpdate: 'afterkeydown'"></td>
+                    <td><input type="text" class="form-control input-sm"
+                               data-bind="numeric:true, value: filterFat, valueUpdate: 'afterkeydown'"></td>
                     <td><span class="label label-info">У</span></td>
-                    <td><input type="text" class="form-control input-sm" data-bind="numeric:true, value: filterCarbo, valueUpdate: 'afterkeydown'"></td>
+                    <td><input type="text" class="form-control input-sm"
+                               data-bind="numeric:true, value: filterCarbo, valueUpdate: 'afterkeydown'"></td>
                     <td><span class="label label-warning">К</span></td>
-                    <td><input type="text" class="form-control input-sm" data-bind="numeric:true, value: filterCalorie, valueUpdate: 'afterkeydown'"></td>
+                    <td><input type="text" class="form-control input-sm"
+                               data-bind="numeric:true, value: filterCalorie, valueUpdate: 'afterkeydown'"></td>
                 </tr>
             </table>
         </div>

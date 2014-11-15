@@ -200,6 +200,7 @@
         self.filterFat = ko.observable();
         self.filterCarbo = ko.observable();
         self.filterCalorie = ko.observable();
+        self.filterComponent = ko.observableArray(self.dishComponents());
 
         self.filteredDishes = ko.computed(function () {
             var filterName = self.filterName();
@@ -208,6 +209,7 @@
             var filterFat = self.filterFat();
             var filterCarbo = self.filterCarbo();
             var filterCalorie = self.filterCalorie();
+            var filterComponent = self.filterComponent();
 
             var result = [];
             self.dishes.forEach(function (dish) {
@@ -228,6 +230,20 @@
                 }
                 if (filterCalorie && dish.calorie < filterCalorie) {
                     return;
+                }
+                if (filterComponent.length) {
+                    var componentFound = true;
+                    dish.component.every(function (component) {
+                        if (self.filterComponent.indexOf(component) == -1) {
+                            componentFound = false;
+                            return false;
+
+                        }
+                        return true;
+                    });
+                    if(!componentFound) {
+                        return;
+                    }
                 }
                 result.push(dish);
             });
