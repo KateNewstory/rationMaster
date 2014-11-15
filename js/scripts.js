@@ -3,6 +3,26 @@
         var self = this;
         self.errorMsg = ko.observable('');
         self.dishes = dishes;
+        self.dishComponents = function () {
+            var result = [];
+            self.dishes.forEach(function (dish) {
+                dish.component.forEach(function (component) {
+                    if (result.indexOf(component) == -1) {
+                        result.push(component);
+                    }
+                });
+            });
+            return result;
+        };
+        self.dishTypes = function () {
+            var result = [''];
+            self.dishes.forEach(function (dish) {
+                if (result.indexOf(dish.type) == -1) {
+                    result.push(dish.type);
+                }
+            });
+            return result;
+        };
         self.restriction = {
             breakfast:{
                 protein:ko.observable(100),
@@ -55,20 +75,20 @@
                     errorMsg += 'белка';
                 }
                 if (dish.fat > energyLeft.fat()) {
-                    if(errorMsg){
-                        errorMsg +=', '
+                    if (errorMsg) {
+                        errorMsg += ', '
                     }
                     errorMsg += 'жиров';
                 }
                 if (dish.carbo > energyLeft.carbo()) {
-                    if(errorMsg){
-                        errorMsg +=', '
+                    if (errorMsg) {
+                        errorMsg += ', '
                     }
                     errorMsg += 'углеводов';
                 }
                 if (dish.calorie > energyLeft.calorie()) {
-                    if(errorMsg){
-                        errorMsg +=', '
+                    if (errorMsg) {
+                        errorMsg += ', '
                     }
                     errorMsg += 'калорий';
                 }
@@ -127,6 +147,7 @@
                         return self.restriction[type].fat() - self.ration[type].energy.fat();
                     }),
                     carbo:ko.computed(function () {
+
                         return self.restriction[type].carbo() - self.ration[type].energy.carbo();
                     }),
                     calorie:ko.computed(function () {
@@ -173,6 +194,45 @@
                 return self.restriction.total.calorie() - self.ration.energy.calorie();
             })
         };
+        self.filterName = ko.observable('');
+        self.filterType = ko.observable('');
+        self.filterProtein = ko.observable();
+        self.filterFat = ko.observable();
+        self.filterCarbo = ko.observable();
+        self.filterCalorie = ko.observable();
+
+        self.filteredDishes = ko.computed(function () {
+            var filterName = self.filterName();
+            var filterType = self.filterType();
+            var filterProtein = self.filterProtein();
+            var filterFat = self.filterFat();
+            var filterCarbo = self.filterCarbo();
+            var filterCalorie = self.filterCalorie();
+
+            var result = [];
+            self.dishes.forEach(function (dish) {
+                if (filterName && dish.name.toLowerCase().indexOf(filterName.toLowerCase()) == -1) {
+                    return;
+                }
+                if (filterType[0] && dish.type != filterType) {
+                    return;
+                }
+                if (filterProtein && dish.protein < filterProtein) {
+                    return;
+                }
+                if (filterFat && dish.fat < filterFat) {
+                    return;
+                }
+                if (filterCarbo && dish.carbo < filterCarbo) {
+                    return;
+                }
+                if (filterCalorie && dish.calorie < filterCalorie) {
+                    return;
+                }
+                result.push(dish);
+            });
+            return result;
+        });
 
 
     };

@@ -31,11 +31,11 @@
                 </td>
                 <td>
                     <input type="text" class="form-control input-sm"
-                           data-bind="value: restriction.supper.protein, valueUpdate: 'afterkeydown'"/>
+                           data-bind="value: restriction.breakfast.protein, valueUpdate: 'afterkeydown'"/>
                 </td>
                 <td>
                     <input type="text" class="form-control input-sm"
-                           data-bind="numeric:true, value: restriction.supper.fat, valueUpdate: 'afterkeydown'"/>
+                           data-bind="numeric:true, value: restriction.breakfast.fat, valueUpdate: 'afterkeydown'"/>
                 </td>
                 <td>
                     <input type="text" class="form-control input-sm"
@@ -113,13 +113,44 @@
 
         </table>
     </div>
+    <div class="components">
+        <h4>Компоненты</h4>
+    </div>
 </div>
 <div class="col-sm-5">
     <div class="row" style="min-height: 75px;">
         <div class="alert alert-danger" role="alert" style="display: none;" data-bind="alert: errorMsg"></div>
     </div>
-
-    <ul class="list-group" data-bind="foreach: dishes">
+    <div class="filters">
+        <div class="row" style="margin-bottom: 5px;">
+            <div class="col-sm-6">
+                <div class="input-group">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="button">Название</button>
+                    </span>
+                    <input type="text" class="form-control" data-bind="value:filterName, valueUpdate: 'afterkeydown'">
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <select class="form-control" data-bind="options:dishTypes(), selectedOptions: filterType"></select>
+            </div>
+        </div>
+        <div>
+            <table class="table-condensed ">
+                <tr>
+                    <td><span class="label label-primary">Б</span></td>
+                    <td><input type="text" class="form-control input-sm" data-bind="numeric:true, value: filterProtein, valueUpdate: 'afterkeydown'"></td>
+                    <td><span class="label label-success">Ж</span></td>
+                    <td><input type="text" class="form-control input-sm" data-bind="numeric:true, value: filterFat, valueUpdate: 'afterkeydown'"></td>
+                    <td><span class="label label-info">У</span></td>
+                    <td><input type="text" class="form-control input-sm" data-bind="numeric:true, value: filterCarbo, valueUpdate: 'afterkeydown'"></td>
+                    <td><span class="label label-warning">К</span></td>
+                    <td><input type="text" class="form-control input-sm" data-bind="numeric:true, value: filterCalorie, valueUpdate: 'afterkeydown'"></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <ul class="list-group" data-bind="foreach: filteredDishes">
         <li class="list-group-item">
             <h4 class="list-group-item-heading" data-bind="text:name"></h4>
 
