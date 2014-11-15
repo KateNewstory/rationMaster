@@ -8,9 +8,153 @@
 <body>
 
 <div class="container-fluid">
-<h1>Планировщик питания</h1>
+<h1>Планировщик питания
+    <!-- ko if: mode() == 'settings' -->
+    <button type="button" class="btn btn-success btn-lg" data-bind="click: showPrint">Печать</button>
+    <!-- /ko -->
+    <!-- ko if: mode() == 'print' -->
+    <button type="button" class="btn btn-success btn-lg" data-bind="click: showSettings">Назад к настройкам</button>
+    <!-- /ko -->
+</h1>
+<!-- ko if: mode() == 'print' -->
+<div class="print row">
+    <div style="margin: 0 auto;width: 50%;">
+        <h4>Завтрак</h4>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Блюдо</th>
+                <th><span class="label label-primary">Белки</span></th>
+                <th><span class="label label-success">Жиры</span></th>
+                <th><span class="label label-info">Углеводы</span></th>
+                <th><span class="label label-warning">Калории</span></th>
+            </tr>
+            </thead>
+            <tbody data-bind="foreach: ration.breakfast.container">
+            <tr>
+                <td>
+                    <span data-bind="text: dish.name + ' (' + count() + ')'"></span>
+                </td>
+                <td data-bind="text: dish.protein * count()"></td>
+                <td data-bind="text: dish.fat * count()"></td>
+                <td data-bind="text: dish.carbo * count()"></td>
+                <td data-bind="text: dish.calorie * count()"></td>
+            </tr>
+            <!-- ko if: $index() == ($parent.ration.breakfast.container().length - 1) -->
+            <tr>
+                <td>
+                    <strong>Всего</strong>
+                </td>
+                <td data-bind="text: $parent.ration.breakfast.energy.protein"></td>
+                <td data-bind="text: $parent.ration.breakfast.energy.fat"></td>
+                <td data-bind="text: $parent.ration.breakfast.energy.carbo"></td>
+                <td data-bind="text: $parent.ration.breakfast.energy.calorie"></td>
+            </tr>
+            <tr>
+                <td>
+                    <strong>Осталось</strong>
+                </td>
+                <td data-bind="text: $parent.ration.breakfast.energyLeft.protein"></td>
+                <td data-bind="text: $parent.ration.breakfast.energyLeft.fat"></td>
+                <td data-bind="text: $parent.ration.breakfast.energyLeft.carbo"></td>
+                <td data-bind="text: $parent.ration.breakfast.energyLeft.calorie"></td>
+            </tr>
+            <!-- /ko -->
+            </tbody>
+        </table>
+        <h4>Обед</h4>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Блюдо</th>
+                <th><span class="label label-primary">Белки</span></th>
+                <th><span class="label label-success">Жиры</span></th>
+                <th><span class="label label-info">Углеводы</span></th>
+                <th><span class="label label-warning">Калории</span></th>
+            </tr>
+            </thead>
+            <tbody data-bind="foreach: ration.dinner.container">
+            <tr>
+                <td>
+                    <span data-bind="text: dish.name + ' (' + count() + ')'"></span>
+                </td>
+                <td data-bind="text: dish.protein * count()"></td>
+                <td data-bind="text: dish.fat * count()"></td>
+                <td data-bind="text: dish.carbo * count()"></td>
+                <td data-bind="text: dish.calorie * count()"></td>
+            </tr>
+            <!-- ko if: $index() == ($parent.ration.dinner.container().length - 1) -->
+            <tr>
+                <td>
+                    <strong>Всего</strong>
+                </td>
+                <td data-bind="text: $parent.ration.dinner.energy.protein"></td>
+                <td data-bind="text: $parent.ration.dinner.energy.fat"></td>
+                <td data-bind="text: $parent.ration.dinner.energy.carbo"></td>
+                <td data-bind="text: $parent.ration.dinner.energy.calorie"></td>
+            </tr>
+            <tr>
+                <td>
+                    <strong>Осталось</strong>
+                </td>
+                <td data-bind="text: $parent.ration.dinner.energyLeft.protein"></td>
+                <td data-bind="text: $parent.ration.dinner.energyLeft.fat"></td>
+                <td data-bind="text: $parent.ration.dinner.energyLeft.carbo"></td>
+                <td data-bind="text: $parent.ration.dinner.energyLeft.calorie"></td>
+            </tr>
+            <!-- /ko -->
+            </tbody>
+        </table>
+        <h4>Ужин</h4>
 
-<div class="row">
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Блюдо</th>
+                <th><span class="label label-primary">Белки</span></th>
+                <th><span class="label label-success">Жиры</span></th>
+                <th><span class="label label-info">Углеводы</span></th>
+                <th><span class="label label-warning">Калории</span></th>
+            </tr>
+            </thead>
+            <tbody data-bind="foreach: ration.supper.container">
+            <tr>
+                <td>
+                    <span data-bind="text: dish.name + ' (' + count() + ')'"></span>
+                </td>
+                <td data-bind="text: dish.protein * count()"></td>
+                <td data-bind="text: dish.fat * count()"></td>
+                <td data-bind="text: dish.carbo * count()"></td>
+                <td data-bind="text: dish.calorie * count()"></td>
+            </tr>
+            <!-- ko if: $index() == ($parent.ration.supper.container().length - 1) -->
+            <tr>
+                <td>
+                    <strong>Всего</strong>
+                </td>
+                <td data-bind="text: $parent.ration.supper.energy.protein"></td>
+                <td data-bind="text: $parent.ration.supper.energy.fat"></td>
+                <td data-bind="text: $parent.ration.supper.energy.carbo"></td>
+                <td data-bind="text: $parent.ration.supper.energy.calorie"></td>
+            </tr>
+            <tr>
+                <td>
+                    <strong>Осталось</strong>
+                </td>
+                <td data-bind="text: $parent.ration.supper.energyLeft.protein"></td>
+                <td data-bind="text: $parent.ration.supper.energyLeft.fat"></td>
+                <td data-bind="text: $parent.ration.supper.energyLeft.carbo"></td>
+                <td data-bind="text: $parent.ration.supper.energyLeft.calorie"></td>
+            </tr>
+            <!-- /ko -->
+            </tbody>
+        </table>
+
+    </div>
+</div>
+<!-- /ko -->
+<!-- ko if: mode() == 'settings' -->
+<div class="settings row">
 <div class="col-sm-3">
     <div class="restriction">
         <h4>Ограничения</h4>
@@ -421,6 +565,7 @@
 
 </div>
 </div>
+<!-- /ko -->
 </div>
 
 

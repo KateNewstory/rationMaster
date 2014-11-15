@@ -1,8 +1,15 @@
 ﻿$(function () {
     ViewModel = function (dishes) {
         var self = this;
+        self.mode = ko.observable('settings');
         self.errorMsg = ko.observable('');
         self.dishes = dishes;
+        self.showPrint = function () {
+            self.mode('print');
+        };
+        self.showSettings = function () {
+            self.mode('settings');
+        };
         self.dishComponents = function () {
             var result = [];
             self.dishes.forEach(function (dish) {
@@ -241,7 +248,7 @@
                         }
                         return true;
                     });
-                    if(!componentFound) {
+                    if (!componentFound) {
                         return;
                     }
                 }
