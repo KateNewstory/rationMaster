@@ -16,7 +16,7 @@ var dishes = [
         protein: 2.2,
         fat: 3,
         carbo: 5,
-        img: '',
+        img: 'img/gorohoviy.jpg',
         component: ['Морковь', 'Лук репчатый', 'Картофель', 'Свинина', 'Горох', 'Масло подслолнечное']
     },
     {
@@ -26,7 +26,7 @@ var dishes = [
         protein: 0.8,
         fat: 3.4,
         carbo: 4.6,
-        img: '',
+        img: 'img/gribnoy.jpg',
         component: ['Морковь', 'Лук репчатый', 'Картофель', 'Грибы', 'Масло подслолнечное']
     },
     {
@@ -36,7 +36,7 @@ var dishes = [
         protein: 4.5,
         fat: 3.3,
         carbo: 3.1,
-        img: '',
+        img: 'img/kuriniy.jpg',
         component: ['Морковь', 'Лук репчатый', 'Картофель', 'Курица', 'Вермишель', 'Масло подслолнечное']
     },
     {
@@ -46,7 +46,7 @@ var dishes = [
         protein: 0.9,
         fat: 1.6,
         carbo: 5.9,
-        img: '',
+        img: 'img/rassolnik.jpg',
         component: ['Морковь', 'Лук репчатый', 'Картофель', 'Курица', 'Рис', 'Огрурец соленый', 'Масло подслолнечное']
     },
     {
@@ -56,7 +56,7 @@ var dishes = [
         protein: 2.8,
         fat: 2.7,
         carbo: 7.7,
-        img: '',
+        img: 'img/molochiny.jpg',
         component: ['Молоко', 'Вермишель', 'Сахар', 'Масло сливочное']
     },
     {
@@ -66,7 +66,7 @@ var dishes = [
         protein: 4.7,
         fat: 6.9,
         carbo: 3.2,
-        img: '',
+        img: 'img/sirniy.jpg',
         component: ['Молоко', 'Сыр плавленный', 'Картофель', 'Лук', 'Масло сливочное']
     },
     {
@@ -76,7 +76,7 @@ var dishes = [
         protein: 8.5,
         fat: 1.9,
         carbo: 4.3,
-        img: '',
+        img: 'img/uha.jpg',
         component: ['Рыба', 'Морковь', 'Картофель', 'Лук', 'Масло сливочное']
     },
     {
@@ -86,7 +86,7 @@ var dishes = [
         protein: 2,
         fat: 2.8,
         carbo: 1,
-        img: '',
+        img: 'img/schi.jpg',
         component: ['Капуста квашеная', 'Морковь', 'Картофель', 'Лук', 'Курица', 'Масло подслолнечное']
     },
     {
@@ -96,8 +96,8 @@ var dishes = [
         protein: 2.2,
         fat: 2.1,
         carbo: 4.3,
-        img: '',
-        component: ['Капуста квашеная', 'Морковь', 'Картофель', 'Лук', 'Курица', 'Масло подслолнечное']
+        img: 'img/harcho.jpg',
+        component: ['Рис', 'Морковь', 'Картофель', 'Лук', 'Свинина', 'Масло подслолнечное', 'Томатная паста']
     },
     {
         type: 'Вторые блюда',
@@ -106,7 +106,7 @@ var dishes = [
         protein: 3.6,
         fat: 2.2,
         carbo: 17.1,
-        img: '',
+        img: 'img/grecka.jpg',
         component: ['Крупа гречневая', 'Масло сливочное']
     },
     {
@@ -116,7 +116,7 @@ var dishes = [
         protein: 5.3,
         fat: 6,
         carbo: 23.2,
-        img: '',
+        img: 'img/manka.jpg',
         component: ['Крупа манная', 'Масло сливочное']
     },
     {
@@ -126,7 +126,7 @@ var dishes = [
         protein: 1.8,
         fat: 1,
         carbo: 8.7,
-        img: '',
+        img: 'img/yachka.jpg',
         component: ['Крупа ячневая', 'Масло сливочное']
     },
     {
@@ -136,7 +136,7 @@ var dishes = [
         protein: 29,
         fat: 35.8,
         carbo: 0.4,
-        img: '',
+        img: 'img/kotleti.jpg',
         component: ['Свинина', 'Лук репчатый', 'Молоко', 'Мука', 'Масло подсолнечное']
     },
     {
@@ -146,7 +146,7 @@ var dishes = [
         protein: 10.6,
         fat: 20.8,
         carbo: 0.7,
-        img: '',
+        img: 'img/zharkoe.jpg',
         component: ['Свинина', 'Лук репчатый', 'Морковь', 'Картофель', 'Масло подсолнечное', 'Масло подсолнечное', 'Томатная паста', 'Чеснок']
     },
     {
@@ -156,7 +156,7 @@ var dishes = [
         protein: 15.4,
         fat: 12.3,
         carbo: 14.7,
-        img: '',
+        img: 'img/riba.jpg',
         component: ['Рыба', 'Яйца', 'Мука', 'Масло подсолнечное']
     },
     {
@@ -166,7 +166,7 @@ var dishes = [
         protein: 15.9,
         fat: 19.3,
         carbo: 1,
-        img: '',
+        img: 'img/glazunia.jpg',
         component: ['Яйца', 'Масло подсолнечное']
     },
     {
@@ -176,7 +176,7 @@ var dishes = [
         protein: 12.2,
         fat: 18.4,
         carbo: 1.9,
-        img: '',
+        img: 'img/omlet.jpg',
         component: ['Яйца', 'Мука', 'Молоко', 'Масло подсолнечное']
     },
     {
@@ -186,17 +186,17 @@ var dishes = [
         protein: 2.1,
         fat: 14,
         carbo: 7.2,
-        img: '',
+        img: 'img/molodoy.jpg',
         component: ['Картофель', 'Сметана', 'Укроп']
     },
     {
         type: 'Вторые блюда',
-        name: 'Картофель жаренный',
+        name: 'Картофель жареный',
         calorie: 203.3,
         protein: 3.7,
         fat: 10.6,
         carbo: 4.8,
-        img: '',
+        img: 'img/zareniy.jpg',
         component: ['Картофель', 'Масло подсолнечное', 'Лук репчатый']
     },
     {
@@ -206,7 +206,7 @@ var dishes = [
         protein: 2.1,
         fat: 4.6,
         carbo: 8.5,
-        img: '',
+        img: 'img/pure.jpg',
         component: ['Картофель', 'Масло сливочное', 'Молоко']
     },
     {
@@ -216,7 +216,7 @@ var dishes = [
         protein: 1.7,
         fat: 11,
         carbo: 9.2,
-        img: '',
+        img: 'img/salat_kap.jpg',
         component: ['Капуста', 'Масло подсолнечное', 'Морковь']
     },
     {
@@ -226,8 +226,8 @@ var dishes = [
         protein: 2,
         fat: 10,
         carbo: 8.3,
-        img: '',
-        component: ['Огурец', 'Помидор', 'Масло подсолнечное']
+        img: 'img/salat_og.jpg',
+        component: ['Огурец', 'Помидор', 'Масло подсолнечное', 'Лук репчатый']
     },
     {
         type: 'Салаты',
@@ -236,7 +236,7 @@ var dishes = [
         protein: 1.7,
         fat: 8.8,
         carbo: 8.5,
-        img: '',
+        img: 'img/salat_bur.jpg',
         component: ['Свекла', 'Чернослив', 'Орехи грецкие', 'Сметана']
     },
     {
@@ -246,7 +246,7 @@ var dishes = [
         protein: 9.3,
         fat: 8.7,
         carbo: 27.2,
-        img: '',
+        img: 'img/blini.jpg',
         component: ['Молоко', 'Мука', 'Яйца', 'Масло подсолнечное']
     },
     {
@@ -256,7 +256,7 @@ var dishes = [
         protein: 9.3,
         fat: 8.7,
         carbo: 27.2,
-        img: '',
+        img: 'img/zhele.jpg',
         component: ['Сливки', 'Яйца', 'Сахар', 'Желатин']
     },
     {
@@ -266,7 +266,7 @@ var dishes = [
         protein: 9.6,
         fat: 14.1,
         carbo: 22.1,
-        img: '',
+        img: 'img/sirniki.jpg',
         component: ['Творог', 'Яйца', 'Сахар', 'Мука']
     },
     {
@@ -276,7 +276,7 @@ var dishes = [
         protein: 0.9,
         fat: 1,
         carbo: 5.5,
-        img: '',
+        img: 'img/kisel.jpg',
         component: ['Сахар', 'Молоко', 'Крахмал', 'Ванилин']
     },
     {
@@ -286,7 +286,7 @@ var dishes = [
         protein: 0.3,
         fat: 0.05,
         carbo: 13.7,
-        img: '',
+        img: 'img/kompot.jpg',
         component: ['Сахар', 'Вишня']
     },
     {
@@ -296,7 +296,7 @@ var dishes = [
         protein: 0.2,
         fat: 0.05,
         carbo: 5.5,
-        img: '',
+        img: 'img/chai_lim.jpg',
         component: ['Сахар', 'Лимон', 'Чай']
     },
     {
@@ -306,7 +306,7 @@ var dishes = [
         protein: 0.9,
         fat: 0.8,
         carbo: 10.5,
-        img: '',
+        img: 'img/chai_mol.jpg',
         component: ['Сахар', 'Молоко', 'Чай']
     }
 
