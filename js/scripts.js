@@ -19,7 +19,7 @@
                     }
                 });
             });
-            return result;
+            return result.sort();
         };
         self.dishTypes = function () {
             var result = [''];

@@ -26,19 +26,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="dishes.js" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/js/dishes.js">
+      <file leaf-file-name="scripts.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/scripts.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="298" column="26" selection-start="7926" selection-end="7926" vertical-scroll-proportion="0.47058824" vertical-offset="4794" max-vertical-offset="5423">
+            <state line="11" column="10" selection-start="366" selection-end="366" vertical-scroll-proportion="-6.68" vertical-offset="20" max-vertical-offset="4556">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="borsch.jpg" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/img/borsch.jpg">
-          <provider selected="true" editor-type-id="images">
-            <state />
+      <file leaf-file-name="dishes.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/js/dishes.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="26" column="17" selection-start="731" selection-end="731" vertical-scroll-proportion="0.7647059" vertical-offset="0" max-vertical-offset="5423">
+              <folding />
+            </state>
           </provider>
         </entry>
       </file>
@@ -72,8 +74,8 @@
       <list>
         <option value="$PROJECT_DIR$/css/style.css" />
         <option value="$PROJECT_DIR$/js/knockout.bindingHandlers.js" />
-        <option value="$PROJECT_DIR$/js/scripts.js" />
         <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/js/scripts.js" />
         <option value="$PROJECT_DIR$/js/dishes.js" />
       </list>
     </option>
@@ -140,7 +142,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="img" />
+              <option name="myItemId" value="js" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -308,13 +310,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/scripts.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="67" column="21" selection-start="2552" selection-end="2561" vertical-scroll-proportion="0.0" vertical-offset="1139" max-vertical-offset="4556">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="344" column="25" selection-start="15722" selection-end="15722" vertical-scroll-proportion="-11.372549" vertical-offset="3177" max-vertical-offset="7956">
@@ -336,9 +331,16 @@
         <state />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/js/scripts.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="10" selection-start="366" selection-end="366" vertical-scroll-proportion="-6.68" vertical-offset="20" max-vertical-offset="4556">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/js/dishes.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="298" column="26" selection-start="7926" selection-end="7926" vertical-scroll-proportion="0.47058824" vertical-offset="4794" max-vertical-offset="5423">
+        <state line="26" column="17" selection-start="731" selection-end="731" vertical-scroll-proportion="0.7647059" vertical-offset="0" max-vertical-offset="5423">
           <folding />
         </state>
       </provider>
