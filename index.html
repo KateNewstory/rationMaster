@@ -181,19 +181,19 @@
                 </td>
                 <td>
                     <input type="text" class="form-control input-sm"
-                           data-bind="value: restriction.breakfast.protein, valueUpdate: 'afterkeydown'"/>
+                           data-bind="numeric:restriction.breakfast.protein, value: restriction.breakfast.protein"/>
                 </td>
                 <td>
                     <input type="text" class="form-control input-sm"
-                           data-bind="numeric:true, value: restriction.breakfast.fat, valueUpdate: 'afterkeydown'"/>
+                           data-bind="numeric:restriction.breakfast.fat, value: restriction.breakfast.fat"/>
                 </td>
                 <td>
                     <input type="text" class="form-control input-sm"
-                           data-bind="numeric:true, value: restriction.breakfast.carbo, valueUpdate: 'afterkeydown'"/>
+                           data-bind="numeric:restriction.breakfast.carbo, value: restriction.breakfast.carbo"/>
                 </td>
                 <td>
                     <input type="text" class="form-control input-sm"
-                           data-bind="numeric:true, value: restriction.breakfast.calorie, valueUpdate: 'afterkeydown'"/>
+                           data-bind="numeric:restriction.breakfast.calorie, value: restriction.breakfast.calorie"/>
                 </td>
             </tr>
             <tr>
@@ -202,19 +202,19 @@
                 </td>
                 <td>
                     <input type="text" class="form-control input-sm"
-                           data-bind="numeric:true, value: restriction.dinner.protein, valueUpdate: 'afterkeydown'"/>
+                           data-bind="numeric:restriction.dinner.protein, value: restriction.dinner.protein"/>
                 </td>
                 <td>
                     <input type="text" class="form-control input-sm"
-                           data-bind="numeric:true, value: restriction.dinner.fat, valueUpdate: 'afterkeydown'"/>
+                           data-bind="numeric:restriction.dinner.fat, value: restriction.dinner.fat"/>
                 </td>
                 <td>
                     <input type="text" class="form-control input-sm"
-                           data-bind="numeric:true, value: restriction.dinner.carbo, valueUpdate: 'afterkeydown'"/>
+                           data-bind="numeric:restriction.dinner.carbo, value: restriction.dinner.carbo"/>
                 </td>
                 <td>
                     <input type="text" class="form-control input-sm"
-                           data-bind="numeric:true, value: restriction.dinner.calorie, valueUpdate: 'afterkeydown'"/>
+                           data-bind="numeric:restriction.dinner.calorie, value: restriction.dinner.calorie"/>
                 </td>
             </tr>
             <tr>
@@ -223,19 +223,19 @@
                 </td>
                 <td>
                     <input type="text" class="form-control input-sm"
-                           data-bind="numeric:true, value: restriction.supper.protein, valueUpdate: 'afterkeydown'"/>
+                           data-bind="numeric:restriction.supper.protein, value: restriction.supper.protein"/>
                 </td>
                 <td>
                     <input type="text" class="form-control input-sm"
-                           data-bind="numeric:true, value: restriction.supper.fat, valueUpdate: 'afterkeydown'"/>
+                           data-bind="numeric:restriction.supper.fat, value: restriction.supper.fat"/>
                 </td>
                 <td>
                     <input type="text" class="form-control input-sm"
-                           data-bind="numeric:true, numeric:true, value: restriction.supper.carbo, valueUpdate: 'afterkeydown'"/>
+                           data-bind="numeric:restriction.supper.carbo, value: restriction.supper.carbo"/>
                 </td>
                 <td>
                     <input type="text" class="form-control input-sm"
-                           data-bind="numeric:true, value: restriction.supper.calorie, valueUpdate: 'afterkeydown'"/>
+                           data-bind="numeric:restriction.supper.calorie, value: restriction.supper.calorie"/>
                 </td>
             </tr>
             <tr>
@@ -300,16 +300,16 @@
                 <tr>
                     <td><span class="label label-primary">Б</span></td>
                     <td><input type="text" class="form-control input-sm"
-                               data-bind="numeric:true, value: filterProtein, valueUpdate: 'afterkeydown'"></td>
+                               data-bind="numeric:filterProtein, value: filterProtein"></td>
                     <td><span class="label label-success">Ж</span></td>
                     <td><input type="text" class="form-control input-sm"
-                               data-bind="numeric:true, value: filterFat, valueUpdate: 'afterkeydown'"></td>
+                               data-bind="numeric:filterFat, value: filterFat"></td>
                     <td><span class="label label-info">У</span></td>
                     <td><input type="text" class="form-control input-sm"
-                               data-bind="numeric:true, value: filterCarbo, valueUpdate: 'afterkeydown'"></td>
+                               data-bind="numeric:filterCarbo, value: filterCarbo"></td>
                     <td><span class="label label-warning">К</span></td>
                     <td><input type="text" class="form-control input-sm"
-                               data-bind="numeric:true, value: filterCalorie, valueUpdate: 'afterkeydown'"></td>
+                               data-bind="numeric:filterCalorie, value: filterCalorie"></td>
                 </tr>
             </table>
         </div>

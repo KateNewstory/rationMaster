@@ -50,6 +50,22 @@
                 calorie: ko.observable(100)
             }
         };
+        self.restriction.breakfast.protein.subscribe(function (newValue) {self.restriction.checkRation('breakfast', 'protein');});
+        self.restriction.breakfast.fat.subscribe(function (newValue) {self.restriction.checkRation('breakfast', 'fat');});
+        self.restriction.breakfast.carbo.subscribe(function (newValue) {self.restriction.checkRation('breakfast', 'carbo');});
+        self.restriction.breakfast.calorie.subscribe(function (newValue) {self.restriction.checkRation('breakfast', 'calorie');});
+
+        self.restriction.dinner.protein.subscribe(function (newValue) {self.restriction.checkRation('dinner', 'protein');});
+        self.restriction.dinner.fat.subscribe(function (newValue) {self.restriction.checkRation('dinner', 'fat');});
+        self.restriction.dinner.carbo.subscribe(function (newValue) {self.restriction.checkRation('dinner', 'carbo');});
+        self.restriction.dinner.calorie.subscribe(function (newValue) {self.restriction.checkRation('dinner', 'calorie');});
+
+        self.restriction.supper.protein.subscribe(function (newValue) {self.restriction.checkRation('supper', 'protein');});
+        self.restriction.supper.fat.subscribe(function (newValue) {self.restriction.checkRation('supper', 'fat');});
+        self.restriction.supper.carbo.subscribe(function (newValue) {self.restriction.checkRation('supper', 'carbo');});
+        self.restriction.supper.calorie.subscribe(function (newValue) {self.restriction.checkRation('supper', 'calorie');});
+
+
         self.restriction.total = {
             protein: ko.computed({
                 read: function () {
@@ -137,6 +153,11 @@
                     self.restriction.dinner[energyType](tempValue);
                     self.restriction.supper[energyType](tempValue);
                     break;
+            }
+        };
+        self.restriction.checkRation = function (type, energyType) {
+            if(self.ration[type].energyLeft[energyType]()<0){
+                self.ration[type].container.removeAll();
             }
         };
         self.ration = {
