@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/js/scripts.js" line="351" />
+    <bookmark url="file://$PROJECT_DIR$/js/scripts.js" line="403" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1073b50b-7fa4-40c9-b60e-2b9d34048ad8" name="Default" comment="" />
@@ -26,10 +26,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="scripts.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="scripts.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/scripts.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="73" column="41" selection-start="3524" selection-end="3524" vertical-scroll-proportion="-7.2" vertical-offset="1061" max-vertical-offset="6188">
+            <state line="359" column="55" selection-start="14597" selection-end="14597" vertical-scroll-proportion="2.3231132" vertical-offset="4133" max-vertical-offset="7072">
               <folding />
             </state>
           </provider>
@@ -44,10 +44,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="250" column="67" selection-start="11222" selection-end="11222" vertical-scroll-proportion="0.47810218" vertical-offset="3857" max-vertical-offset="10047">
+            <state line="248" column="20" selection-start="11085" selection-end="11085" vertical-scroll-proportion="-7.0392156" vertical-offset="3857" max-vertical-offset="10047">
               <folding />
             </state>
           </provider>
@@ -74,9 +74,9 @@
       <list>
         <option value="$PROJECT_DIR$/css/style.css" />
         <option value="$PROJECT_DIR$/js/dishes.js" />
-        <option value="$PROJECT_DIR$/js/scripts.js" />
         <option value="$PROJECT_DIR$/js/knockout.bindingHandlers.js" />
         <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/js/scripts.js" />
       </list>
     </option>
   </component>
@@ -320,6 +320,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="248" column="20" selection-start="11085" selection-end="11085" vertical-scroll-proportion="-7.0392156" vertical-offset="3857" max-vertical-offset="10047">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/js/knockout.bindingHandlers.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="6" column="48" selection-start="259" selection-end="259" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="510">
@@ -329,14 +336,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/scripts.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="73" column="41" selection-start="3524" selection-end="3524" vertical-scroll-proportion="-7.2" vertical-offset="1061" max-vertical-offset="6188">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="250" column="67" selection-start="11222" selection-end="11222" vertical-scroll-proportion="0.47810218" vertical-offset="3857" max-vertical-offset="10047">
+        <state line="359" column="55" selection-start="14597" selection-end="14597" vertical-scroll-proportion="2.3231132" vertical-offset="4133" max-vertical-offset="7072">
           <folding />
         </state>
       </provider>

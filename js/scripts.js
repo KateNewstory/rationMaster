@@ -1,15 +1,19 @@
-﻿﻿$(function () {
+﻿﻿
+$(function () {
     ViewModel = function (dishes) {
         var self = this;
-        self.mode = ko.observable('settings');
         self.errorMsg = ko.observable('');
         self.dishes = dishes;
+
+        //Печать или настройки
+        self.mode = ko.observable('settings');
         self.showPrint = function () {
             self.mode('print');
         };
         self.showSettings = function () {
             self.mode('settings');
         };
+        //Компоненты (сахар, масло...)
         self.dishComponents = function () {
             var result = [];
             self.dishes.forEach(function (dish) {
@@ -21,6 +25,8 @@
             });
             return result.sort();
         };
+
+        //первые, вторые блюда...
         self.dishTypes = function () {
             var result = [''];
             self.dishes.forEach(function (dish) {
@@ -30,6 +36,8 @@
             });
             return result;
         };
+
+        //Ограничения пользователя
         self.restriction = {
             breakfast: {
                 protein: ko.observable(100),
@@ -50,22 +58,48 @@
                 calorie: ko.observable(100)
             }
         };
-        self.restriction.breakfast.protein.subscribe(function (newValue) {self.restriction.checkRation('breakfast', 'protein');});
-        self.restriction.breakfast.fat.subscribe(function (newValue) {self.restriction.checkRation('breakfast', 'fat');});
-        self.restriction.breakfast.carbo.subscribe(function (newValue) {self.restriction.checkRation('breakfast', 'carbo');});
-        self.restriction.breakfast.calorie.subscribe(function (newValue) {self.restriction.checkRation('breakfast', 'calorie');});
 
-        self.restriction.dinner.protein.subscribe(function (newValue) {self.restriction.checkRation('dinner', 'protein');});
-        self.restriction.dinner.fat.subscribe(function (newValue) {self.restriction.checkRation('dinner', 'fat');});
-        self.restriction.dinner.carbo.subscribe(function (newValue) {self.restriction.checkRation('dinner', 'carbo');});
-        self.restriction.dinner.calorie.subscribe(function (newValue) {self.restriction.checkRation('dinner', 'calorie');});
+        //При изменении значений удаляются блюда из рациона (если остаток меньше нуля)
+        self.restriction.breakfast.protein.subscribe(function (newValue) {
+            self.restriction.checkRation('breakfast', 'protein');
+        });
+        self.restriction.breakfast.fat.subscribe(function (newValue) {
+            self.restriction.checkRation('breakfast', 'fat');
+        });
+        self.restriction.breakfast.carbo.subscribe(function (newValue) {
+            self.restriction.checkRation('breakfast', 'carbo');
+        });
+        self.restriction.breakfast.calorie.subscribe(function (newValue) {
+            self.restriction.checkRation('breakfast', 'calorie');
+        });
 
-        self.restriction.supper.protein.subscribe(function (newValue) {self.restriction.checkRation('supper', 'protein');});
-        self.restriction.supper.fat.subscribe(function (newValue) {self.restriction.checkRation('supper', 'fat');});
-        self.restriction.supper.carbo.subscribe(function (newValue) {self.restriction.checkRation('supper', 'carbo');});
-        self.restriction.supper.calorie.subscribe(function (newValue) {self.restriction.checkRation('supper', 'calorie');});
+        self.restriction.dinner.protein.subscribe(function (newValue) {
+            self.restriction.checkRation('dinner', 'protein');
+        });
+        self.restriction.dinner.fat.subscribe(function (newValue) {
+            self.restriction.checkRation('dinner', 'fat');
+        });
+        self.restriction.dinner.carbo.subscribe(function (newValue) {
+            self.restriction.checkRation('dinner', 'carbo');
+        });
+        self.restriction.dinner.calorie.subscribe(function (newValue) {
+            self.restriction.checkRation('dinner', 'calorie');
+        });
 
+        self.restriction.supper.protein.subscribe(function (newValue) {
+            self.restriction.checkRation('supper', 'protein');
+        });
+        self.restriction.supper.fat.subscribe(function (newValue) {
+            self.restriction.checkRation('supper', 'fat');
+        });
+        self.restriction.supper.carbo.subscribe(function (newValue) {
+            self.restriction.checkRation('supper', 'carbo');
+        });
+        self.restriction.supper.calorie.subscribe(function (newValue) {
+            self.restriction.checkRation('supper', 'calorie');
+        });
 
+        //Общие значения ограничений
         self.restriction.total = {
             protein: ko.computed({
                 read: function () {
@@ -107,6 +141,8 @@
                 }
             )
         };
+
+        //Перезапись индивидуальных значений ограничений при изменении общего количества
         self.restriction.writeTotal = function (value, energyType) {
             var notSet = [];
             var breakfast = +self.restriction.breakfast[energyType]();
@@ -155,11 +191,15 @@
                     break;
             }
         };
+
+        //Проверка и удаление блюд (если нужно) при изменении ограничений пользователем
         self.restriction.checkRation = function (type, energyType) {
-            if(self.ration[type].energyLeft[energyType]()<0){
+            if (self.ration[type].energyLeft[energyType]() < 0) {
                 self.ration[type].container.removeAll();
             }
         };
+
+        //Рацион пользователя
         self.ration = {
             breakfast: {
                 container: ko.observableArray([])
@@ -170,6 +210,8 @@
             supper: {
                 container: ko.observableArray([])
             },
+
+            //Добавить блюдо
             add: function (dish, type) {
                 var found = false;
                 var energyLeft = self.ration[type].energyLeft;
@@ -214,6 +256,8 @@
                 }
 
             },
+
+            //Удалить блюдо
             remove: function (element, type) {
                 self.ration[type].container.remove(element);
             },
@@ -225,6 +269,8 @@
                 });
                 return result;
             },
+
+            //Получить общую энергетическую ценность рациона
             getEnergyObj: function (type) {
                 return {
                     protein: ko.computed(function () {
@@ -241,6 +287,8 @@
                     })
                 }
             },
+
+            //Получить остаток от общей энергетической ценности рациона
             getEnergyLeftObj: function (type) {
                 return {
                     protein: ko.computed(function () {
@@ -260,6 +308,7 @@
             }
         };
 
+        //Энергетическая ценность каждого приема пищи
         self.ration.breakfast.energy = self.ration.getEnergyObj('breakfast');
         self.ration.breakfast.energyLeft = self.ration.getEnergyLeftObj('breakfast');
 
@@ -269,6 +318,7 @@
         self.ration.supper.energy = self.ration.getEnergyObj('supper');
         self.ration.supper.energyLeft = self.ration.getEnergyLeftObj('supper');
 
+        //Энергетическая ценность всего рациона
         self.ration.energy = {
             protein: ko.computed(function () {
                 return self.ration.breakfast.energy.protein() + self.ration.dinner.energy.protein() + self.ration.supper.energy.protein();
@@ -297,6 +347,8 @@
                 return (self.restriction.total.calorie() - self.ration.energy.calorie()).toFixed(2);
             })
         };
+
+        //Фильтрация блюд
         self.filterName = ko.observable('');
         self.filterType = ko.observable('');
         self.filterProtein = ko.observable();
