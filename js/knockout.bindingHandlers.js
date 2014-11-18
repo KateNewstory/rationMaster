@@ -1,18 +1,19 @@
 ﻿ko.bindingHandlers.numeric = {
-    update:function (element, valueAccessor) {
+    update: function (element, valueAccessor) {
         var value = valueAccessor();
 
         $(element).on("focusout", function () {
-           if(!isNaN(parseFloat(value()))) {
-               value(parseFloat(value()))
-           } else {
-               value(0);
-           }
+            var number = parseFloat(value());
+            if (!isNaN(number) && number >= 0) {
+                value(number);
+            } else {
+                value(0);
+            }
         });
     }
 };
 ko.bindingHandlers.alert = {
-    update:function (element, valueAccesor) {
+    update: function (element, valueAccesor) {
         var value = valueAccesor();
 
         if (value() != '') {
